@@ -65,6 +65,22 @@ module.exports = function () {
 						splainfo.ranked.push(ranked.maps[1]["nameJP"]);
 						splainfo.ranked_rule = ranked.rulesJP;
 
+						if(resnum + 1 < json_info.schedule.length) {
+
+							var result = json_info.schedule[resnum+1];
+							var regular = result.regular;
+							var ranked = result.ranked;
+
+							splainfo.next_starttime = result.startTime;
+							splainfo.next_endtime = result.endTime;
+							splainfo.next_regular.push(regular.maps[0]["nameJP"]);
+							splainfo.next_regular.push(regular.maps[1]["nameJP"]);
+							splainfo.next_ranked.push(ranked.maps[0]["nameJP"]);
+							splainfo.next_ranked.push(ranked.maps[1]["nameJP"]);
+							splainfo.next_ranked_rule = ranked.rulesJP;
+
+						}
+
 						splainfo.emit('done');
 
 					});

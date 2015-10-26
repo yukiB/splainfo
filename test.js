@@ -1,6 +1,5 @@
 var splainfo = require('./splainfo')
 
-
 var si = splainfo();
 
 si.on('done', function(){
