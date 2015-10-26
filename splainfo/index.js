@@ -12,6 +12,9 @@ module.exports = function () {
 	splainfo.regular = new Array();
 	splainfo.ranked = new Array();
 	splainfo.ranked_rule = "";
+	splainfo.next_regular = new Array();
+	splainfo.next_ranked = new Array();
+	splainfo.next_ranked_rule = "";
 
 	http.get(splainfo.fes_url, function(res){
 		var body = '';
@@ -67,10 +70,9 @@ module.exports = function () {
 
 						if(resnum + 1 < json_info.schedule.length) {
 
-							var result = json_info.schedule[resnum+1];
+							var result = json_info.schedule[resnum + 1 ];
 							var regular = result.regular;
 							var ranked = result.ranked;
-
 							splainfo.next_starttime = result.startTime;
 							splainfo.next_endtime = result.endTime;
 							splainfo.next_regular.push(regular.maps[0]["nameJP"]);
