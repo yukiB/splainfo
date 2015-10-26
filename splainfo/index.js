@@ -70,7 +70,7 @@ module.exports = function () {
 
 						if(resnum + 1 < json_info.schedule.length) {
 
-							var result = json_info.schedule[resnum + 1 ];
+							var result = json_info.schedule[resnum + 1];
 							var regular = result.regular;
 							var ranked = result.ranked;
 							splainfo.next_starttime = result.startTime;
@@ -88,6 +88,7 @@ module.exports = function () {
 					});
 				}).on('error', function(e){
 					console.log(e.message); 
+					splainfo.emit('error');
 				});
 			}
 
@@ -95,6 +96,7 @@ module.exports = function () {
 		});
 }).on('error', function(e){
 	console.log(e.message); 
+	splainfo.emit('error');
 });
 
 return splainfo;
